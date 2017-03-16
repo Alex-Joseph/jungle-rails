@@ -1,0 +1,1 @@
+json.array! @order_ids, partial: 'order_ids/order_id', as: :order_id

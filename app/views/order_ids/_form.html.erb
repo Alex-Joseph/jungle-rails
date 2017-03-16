@@ -1,0 +1,21 @@
+<%= form_for(@order_id) do |f| %>
+  <% if @order_id.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order_id.errors.count, "error") %> prohibited this order_id from being saved:</h2>
+
+      <ul>
+      <% @order_id.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
