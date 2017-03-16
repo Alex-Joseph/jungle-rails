@@ -1,0 +1,19 @@
+<!-- app/views/sessions/new.html.erb -->
+<head>
+  <%= stylesheet_link_tag 'loginSignUp', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'loginSignUp', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1>Login</h1>
+
+<%= form_tag '/login' do %>
+
+  Email: <%= text_field_tag :email %>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag "Submit" %>
+
+<% end %>
+
+</body>

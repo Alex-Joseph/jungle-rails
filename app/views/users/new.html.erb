@@ -1,0 +1,21 @@
+<head>
+  <%= stylesheet_link_tag 'loginSignUp', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'loginSignUp', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h1>Signup!</h1>
+
+<%= form_for :user, url: '/users' do |f| %>
+
+  First Name: <%= f.text_field :first_name %>
+  Last Name: <%= f.text_field :last_name %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  <%= f.submit "Sign up" %>
+
+<% end %>
+
+</body>
