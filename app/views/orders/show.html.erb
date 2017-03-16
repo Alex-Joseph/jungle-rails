@@ -4,10 +4,37 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% grand_total = 0 %>
+      <% @order_line_items.each do |li| %>
+        <% grand_total += li.product.price %>
+        <%= render 'order', li: li %>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">Grand Total</td>
+        <td><%= "$#{grand_total}" %></td>
+      </tr>
+    </tfoot>
+  </table>
+
+</div>
+
+  <%= console %>
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
 </section>

@@ -1,0 +1,17 @@
+
+  <tr>
+    <td>
+      <%= image_tag li.product.image.tiny %>
+    </td>
+    <td>
+      <h4><%= li.product.name %></h4>
+      <br>
+      <p><%= li.product.description %></p>
+    </td>
+    <td>
+      <%= li.quantity %>
+    </td>
+    <td>
+      <%= "$#{li.product.price}" %>
+    </td>
+  </tr>
