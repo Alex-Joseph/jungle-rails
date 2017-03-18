@@ -23,9 +23,57 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+
       </div>
     </div>
-
   </article>
-
 </section>
+
+  <% if current_user %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="widget-area no-padding blank">
+        <div class="status-upload">
+          <%= form_for [@product, @review] do |f| %>
+            <%= f.text_area :description, size: "50x5" %><br>
+            <%= f.select :rating, 1..5 %>
+            <%= f.submit "Comment" %>
+          <% end %>
+        </div><!-- Status Upload  -->
+      </div><!-- Widget Area -->
+    </div>
+  </div>
+  <% end %>
+
+  <span class='row'>
+    <h3>
+      <dt>Reviews</dt>
+    </h3>
+  </span>
+
+  <% @rev = @product.reviews[0..-2] %>
+  <% if @rev.length == 0 %>
+    <h3>There are no reviews</h3>
+  <% else %>
+    <section>
+        <% @rev.reverse.each do |r| %>
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title">User: <%= r.user_id %></h4>
+            <h6 class="card-subtitle mb-2 text-muted">Rating: <%= r.rating %></h6>
+            <p class="card-text">
+              <%= r.description %>
+            </p>
+            <% if current_user %>
+              <% if current_user.id == r.user_id %>
+              <a class="card-link">
+                <%= link_to "Delete", [@product, r], method: :delete,
+                data: {confirm: "Are you sure you want to delete this ?"}%>
+              </a>
+            <% end %>
+          <% end %>
+          </div>
+        </div><br>
+        <% end %>
+    </section>
+  <% end %>

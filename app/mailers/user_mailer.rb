@@ -7,4 +7,3 @@ class UserMailer < ApplicationMailer
     mail(to: @order.email, subject: "Receipt for order#{@order.id}")
   end
 end
-# Need: order_id, grand total, each line_items
