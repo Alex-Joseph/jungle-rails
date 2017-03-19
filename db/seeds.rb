@@ -132,10 +132,10 @@ cat3.products.create!({
   price: 2_483.75
 })
 
-5.times do |r|
+45.times do |r|
   Review.create!(
-  product_id: Faker::Number.between(1, 4),
-  user_id: Faker::Number.number(1),
+  product_id: Faker::Number.between(1, 14),
+  user_id: Faker::Number.between(1, 30),
   description: Faker::Lorem.paragraph,
   rating: Faker::Number.between(1, 5)
   )

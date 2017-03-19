@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     else
       redirect_to '/signup'
+      flash[:error] = "That email is already taken"
     end
   end
 
