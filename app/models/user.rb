@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, length: { in: 6..20 }
   has_secure_password
+
 end
